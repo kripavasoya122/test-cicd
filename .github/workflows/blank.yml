@@ -27,10 +27,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo "DOCKER_FILE=../../deployment/master/test-cicd_1.0.0_dockerfile" >> $GITHUB_ENV
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo "${{ env.DOCKER_FILE }}"
+          cat "${{ env.DOCKER_FILE }}"
