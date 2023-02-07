@@ -33,6 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           ls -ltra
-          pwd
+          mkdir $HOME/.kube
+          cp "${{ env.DOCKER_FILE }}" $HOME/.kube/
           echo "${{ env.DOCKER_FILE }}"
           cat "${{ env.DOCKER_FILE }}"
